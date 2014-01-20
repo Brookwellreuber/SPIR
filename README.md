@@ -4,63 +4,6 @@
 <meta http-equiv=Content-Type content="text/html; charset=windows-1255">
 <meta name=Generator content="Microsoft Word 14 (filtered)">
 <style>
-<!--
- /* Font Definitions */
- @font-face
-	{font-family:Calibri;
-	panose-1:2 15 5 2 2 2 4 3 2 4;}
-@font-face
-	{font-family:Consolas;
-	panose-1:2 11 6 9 2 2 4 3 2 4;}
- /* Style Definitions */
- p.MsoNormal, li.MsoNormal, div.MsoNormal
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:10.0pt;
-	margin-left:0cm;
-	line-height:115%;
-	font-size:11.0pt;
-	font-family:"Calibri","sans-serif";}
-p.MsoHeader, li.MsoHeader, div.MsoHeader
-	{mso-style-link:"Header Char";
-	margin:0cm;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Calibri","sans-serif";}
-p.MsoFooter, li.MsoFooter, div.MsoFooter
-	{mso-style-link:"Footer Char";
-	margin:0cm;
-	margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Calibri","sans-serif";}
-p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
-	{mso-style-link:"Plain Text Char";
-	margin:0cm;
-	margin-bottom:.0001pt;
-	font-size:10.5pt;
-	font-family:Consolas;}
-span.PlainTextChar
-	{mso-style-name:"Plain Text Char";
-	mso-style-link:"Plain Text";
-	font-family:Consolas;}
-span.HeaderChar
-	{mso-style-name:"Header Char";
-	mso-style-link:Header;}
-span.FooterChar
-	{mso-style-name:"Footer Char";
-	mso-style-link:Footer;}
-.MsoChpDefault
-	{font-family:"Calibri","sans-serif";}
-.MsoPapDefault
-	{margin-bottom:10.0pt;
-	line-height:115%;}
- /* Page Definitions */
- @page WordSection1
-	{size:595.3pt 841.9pt;
-	margin:72.0pt 66.75pt 72.0pt 66.7pt;}
-div.WordSection1
-	{page:WordSection1;}
--->
 </style>
 
 </head>
