@@ -1,101 +1,198 @@
-//===----------------------------------------------------------------------===//
-// SPIR generator/Clang Installation Instructions
-//===----------------------------------------------------------------------===//
+<html>
 
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1255">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Footer Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-link:"Plain Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.5pt;
+	font-family:Consolas;}
+span.PlainTextChar
+	{mso-style-name:"Plain Text Char";
+	mso-style-link:"Plain Text";
+	font-family:Consolas;}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-link:Footer;}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 66.75pt 72.0pt 66.7pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
 
-These instructions describe how to build, install and operate SPIR generator/
-Clang.
+</head>
 
+<body lang=EN-US>
 
-//===----------------------------------------------------------------------===//
-// Step 1: Organization
-//===----------------------------------------------------------------------===//
+<div class=WordSection1>
 
+<p class=MsoPlainText style='margin-right:-34.3pt'><span style='font-family:
+"Courier New"'>//===----------------------------------------------------------------------===//<br>
+// SPIR generator/Clang Installation Instructions<br>
+//===----------------------------------------------------------------------===//<br>
+<br>
+<br>
+These instructions describe how to build, install and operate SPIR
+generator/<br>
+Clang.<br>
+<br>
+<br>
+//===----------------------------------------------------------------------===//<br>
+// Step 1: Organization<br>
+//===----------------------------------------------------------------------===//<br>
+<br>
+<br>
+SPIR generator/Clang is designed to be built as part of an LLVM build. <br>
+SPIR generator/Clang is based on LLVM/Clang version 3.2<br>
+<br>
+The LLVM source code could be downloaded from:<br>
+  http://www.llvm.org/releases/3.2/llvm-3.2.src.tar.gz<br>
+  <br>
+It is also available directly from the LLVM svn server:<br>
+  svn co http://llvm.org/svn/llvm-project/llvm/tags/RELEASE_32/final llvm<br>
+<br>
+Or could be cloned from LLVM git repository:<br>
+<br>
+  git clone http://llvm.org/git/llvm.git llvm<br>
+  cd llvm<br>
+  git checkout --track -b release_32 remotes/origin/release_32<br>
+ <br>
+Assuming that the LLVM source code is located at $LLVM_SRC_ROOT, then the clang
+<br>
+source code should be installed as:<br>
+<br>
+  $LLVM_SRC_ROOT/tools/clang<br>
+<br>
+The directory is not required to be called clang, but doing so will allow
+the<br>
+LLVM build system to automatically recognize it and build it along with
+LLVM.<br>
+<br>
+  cd $LLVM_SRC_ROOT/tools<br>
+  git clone https://github.com/KhronosGroup/SPIR clang<br>
+  cd clang<br>
+  git checkout --track -b spir_12 remotes/origin/spir_12<br>
+    <br>
+  <br>
+//===----------------------------------------------------------------------===//<br>
+// Step 2: Configure and Build LLVM<br>
+//===----------------------------------------------------------------------===//<br>
+<br>
+<br>
+Configure and build your copy of LLVM (see
+$LLVM_SRC_ROOT/GettingStarted.html<br>
+for more information).<br>
+<br>
+<br>
+Assuming you installed clang at $LLVM_SRC_ROOT/tools/clang then Clang
+will<br>
+automatically be built with LLVM. Otherwise, run 'make' in the Clang
+source<br>
+directory to build Clang.<br>
+<br>
+* Note: currently there might be failures in check_clang project.<br>
+<br>
+//===----------------------------------------------------------------------===//<br>
+// Step 3: (Optional) Verify Your Build<br>
+//===----------------------------------------------------------------------===//<br>
+<br>
+<br>
+It is a good idea to run the Clang tests to make sure your build works<br>
+correctly. From inside the Clang build directory, run 'make test' to run
+the<br>
+tests.<br>
+<br>
+<br>
+//===----------------------------------------------------------------------===//<br>
+// Step 4: Install Clang<br>
+//===----------------------------------------------------------------------===//<br>
+<br>
+<br>
+If you wish to run Clang from the generated binary directory, you may skip this
+section.<br>
+<br>
+From inside the Clang build directory, run 'make install' to install the
+Clang<br>
+compiler and header files into the prefix directory selected when LLVM
+was<br>
+configured.<br>
+<br>
+<br>
+The Clang compiler is available as 'clang' and 'clang++'. It supports a gcc
+like command line<br>
+interface. See the man page for clang (installed into
+$prefix/share/man/man1)<br>
+for more information.<br>
+<br>
+<br>
+//===----------------------------------------------------------------------===//<br>
+// Step 5: Creating SPIR binaries<br>
+//===----------------------------------------------------------------------===//<br>
+<br>
+<br>
+To create a SPIR binary from a valid OpenCL-C file (.cl), use the following
+command<br>
+lines:<br>
+<br>
+  clang -cc1 -emit-llvm-bc -triple &lt;triple&gt; &lt;OpenCL compile
+options&gt; -cl-spir-compile-options &quot;&lt;OpenCL compile options&gt;&quot;
+-include &lt;opencl_spir.h&gt; -o &lt;output&gt; &lt;input&gt;<br>
+<br>
+* &lt;triple&gt;: for 32 bit SPIR use spir-unknown-unknown, for 64 bit SPIR use
+spir64-unknown-unknown.<br>
+* Note: &lt;OpenCL compile options&gt; appears twice. The command line option
+-cl-spir-compile-options &quot;&lt;OpenCL compile options&gt;&quot;<br>
+  specifies the compile options that occur in the SPIR metadata.<br>
+* &lt;opencl_spir.h&gt;: download opencl_spir.h from https://github.com/KhronosGroup/SPIR-Tools/blob/master/headers/opencl_spir.h<br>
+<br>
+<br>
+ &nbsp;</span></p>
 
-SPIR generator/Clang is designed to be built as part of an LLVM build. 
-SPIR generator/Clang is based on LLVM/Clang version 3.2
+</div>
 
-The LLVM source code could be downloaded from:
-  http://www.llvm.org/releases/3.2/llvm-3.2.src.tar.gz
-  
-It is also available directly from the LLVM svn server:
-  svn co http://llvm.org/svn/llvm-project/llvm/tags/RELEASE_32/final llvm
+</body>
 
-Or could be cloned from LLVM git repository:
-
-  git clone http://llvm.org/git/llvm.git llvm
-  cd llvm
-  git checkout --track -b release_32 remotes/origin/release_32
- 
-Assuming that the LLVM source code is located at $LLVM_SRC_ROOT, then the clang 
-source code should be installed as:
-
-  $LLVM_SRC_ROOT/tools/clang
-
-The directory is not required to be called clang, but doing so will allow the
-LLVM build system to automatically recognize it and build it along with LLVM.
-
-  cd $LLVM_SRC_ROOT/tools
-  git clone https://github.com/KhronosGroup/SPIR clang
-  cd clang
-  git checkout --track -b spir_12 remotes/origin/spir_12
-    
-  
-//===----------------------------------------------------------------------===//
-// Step 2: Configure and Build LLVM
-//===----------------------------------------------------------------------===//
-
-
-Configure and build your copy of LLVM (see $LLVM_SRC_ROOT/GettingStarted.html
-for more information).
-
-
-Assuming you installed clang at $LLVM_SRC_ROOT/tools/clang then Clang will
-automatically be built with LLVM. Otherwise, run 'make' in the Clang source
-directory to build Clang.
-
-* Note: currently there might be failures in check_clang project.
-
-//===----------------------------------------------------------------------===//
-// Step 3: (Optional) Verify Your Build
-//===----------------------------------------------------------------------===//
-
-
-It is a good idea to run the Clang tests to make sure your build works
-correctly. From inside the Clang build directory, run 'make test' to run the
-tests.
-
-
-//===----------------------------------------------------------------------===//
-// Step 4: Install Clang
-//===----------------------------------------------------------------------===//
-
-
-If you wish to run Clang from the generated binary directory, you may skip this section.
-
-From inside the Clang build directory, run 'make install' to install the Clang
-compiler and header files into the prefix directory selected when LLVM was
-configured.
-
-
-The Clang compiler is available as 'clang' and 'clang++'. It supports a gcc like command line
-interface. See the man page for clang (installed into $prefix/share/man/man1)
-for more information.
-
-
-//===----------------------------------------------------------------------===//
-// Step 5: Creating SPIR binaries
-//===----------------------------------------------------------------------===//
-
-
-To create a SPIR binary from a valid OpenCL-C file (.cl), use the following command
-lines:
-
-  clang -cc1 -emit-llvm-bc -triple <triple> <OpenCL compile options> -cl-spir-compile-options "<OpenCL compile options>" -include <opencl_spir.h> -o <output> <input>
-
-* <triple>: for 32 bit SPIR use spir-unknown-unknown, for 64 bit SPIR use spir64-unknown-unknown.
-* Note: <OpenCL compile options> appears twice. The command line option -cl-spir-compile-options "<OpenCL compile options>"
-  specifies the compile options that occur in the SPIR metadata.
-* <opencl_spir.h>: download opencl_spir.h from https://github.com/KhronosGroup/SPIR-Tools/blob/master/headers/opencl_spir.h
-
-
+</html>
